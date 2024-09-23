@@ -8,9 +8,10 @@ find_package(OpenCV REQUIRED)
 # Include OpenCV headers
 include_directories(${OpenCV_INCLUDE_DIRS})
 
-# Add your executable
-add_executable(yoloc main.cpp)
+# Add your executables
+add_executable(image image.cpp)
+add_executable(live live.cpp)
 
 # Link OpenCV libraries
-target_link_libraries(yoloc ${OpenCV_LIBS})
-
+target_link_libraries(image ${OpenCV_LIBS})
+target_link_libraries(live ${OpenCV_LIBS})
