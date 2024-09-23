@@ -1,13 +1,18 @@
 from ultralytics import YOLO
 
-# Load the YOLOv8 model
-model = YOLO("yolov8n.pt")
+# List of YOLOv8 models to convert
+yolo_models = ["yolov8n.pt", "yolov8s.pt", "yolov8m.pt", "yolov8l.pt", "yolov8x.pt"]
 
-# Export the model to ONNX format
-model.export(format="onnx")  # creates 'yolov8n.onnx'
+for model_name in yolo_models:
+    # Load the YOLOv8 model
+    model = YOLO(model_name)
 
-# Load the exported ONNX model
-onnx_model = YOLO("yolov8n.onnx")
+    # Export the model to ONNX format
+    onnx_model_name = model_name.replace(".pt", ".onnx")
+    model.export(format="onnx")  # creates corresponding .onnx file
 
-# Run inference
-results = onnx_model("https://ultralytics.com/images/bus.jpg")
+    # Load the exported ONNX model
+    onnx_model = YOLO(onnx_model_name)
+
+    # Run inference
+    results = onnx_model("https://ultralytics.com/images/bus.jpg")
