@@ -9,9 +9,9 @@ find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
 # Add your executables
-add_executable(image image.cpp)
+add_executable(video video.cpp)
 add_executable(live live.cpp)
 
 # Link OpenCV libraries
-target_link_libraries(image ${OpenCV_LIBS})
+target_link_libraries(video ${OpenCV_LIBS})
 target_link_libraries(live ${OpenCV_LIBS})

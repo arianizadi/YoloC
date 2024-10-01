@@ -1,7 +1,8 @@
 from ultralytics import YOLO
+import glob
 
-# List of YOLOv8 models to convert
-yolo_models = ["yolov8n.pt", "yolov8s.pt", "yolov8m.pt", "yolov8l.pt", "yolov8x.pt"]
+# Find all .pt files in the current directory
+yolo_models = glob.glob("*.pt")
 
 for model_name in yolo_models:
     # Load the YOLOv8 model
