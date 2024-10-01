@@ -11,9 +11,3 @@ for model_name in yolo_models:
     # Export the model to ONNX format
     onnx_model_name = model_name.replace(".pt", ".onnx")
     model.export(format="onnx")  # creates corresponding .onnx file
-
-    # Load the exported ONNX model
-    onnx_model = YOLO(onnx_model_name)
-
-    # Run inference
-    results = onnx_model("https://ultralytics.com/images/bus.jpg")
